@@ -1,0 +1,47 @@
+@charset "utf-8";
+@use "@/styles/global/variables" as *;
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin-inline: auto;
+  & li > a {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+    width: fit-content;
+    & > figure {
+      line-height: 0;
+      img {
+        transition: filter 0.3s;
+      }
+    }
+  }
+}
+
+@media (width > $sp-width-normal) {
+  .gridContainer {
+    grid-template-columns: repeat(3, 1fr);
+    width: 720px;
+  }
+}
+
+@media (hover: hover) {
+  .gridContainer {
+    & li > a:hover {
+      color: $color-sub;
+      & > figure {
+        img {
+          filter: invert(44%) sepia(80%) saturate(684%) hue-rotate(133deg) brightness(91%) contrast(101%);
+        }
+      }
+    }
+  }
+}

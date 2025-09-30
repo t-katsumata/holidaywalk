@@ -1,0 +1,42 @@
+@charset "utf-8";
+@use "@/styles/global/variables" as *;
+
+.buttonWrapper {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.button {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  width: 80%;
+  height: fit-content;
+  padding: 10px 40px 10px 32px;
+  border: 1px solid $color-default;
+  transition: color 0.3s, background-color 0.3s;
+  svg {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+  }
+}
+
+@media (width > $sp-width-normal) {
+  .button {
+    max-width: 320px;
+  }
+}
+
+@media (hover: hover) {
+  .button:hover {
+    color: $color-white;
+    background-color: $color-accent;
+  }
+}

@@ -1,0 +1,38 @@
+@charset "utf-8";
+@use "@/styles/global/variables" as *;
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  list-style: none;
+  padding: 0;
+  margin: 40px auto 0;
+  width: 100%;
+  li > a {
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    border: solid 1px $color-default;
+    padding: 6px 8px;
+    transition: color 0.3s, border-color 0.3s;
+  }
+}
+
+@media (width > $sp-width-normal) {
+  .gridContainer {
+    grid-template-columns: repeat(3, 1fr);
+    width: 720px;
+  }
+}
+
+@media (hover: hover) {
+  .gridContainer {
+    li > a:hover {
+      color: $color-sub;
+      border-color: $color-sub;
+    }
+  }
+}

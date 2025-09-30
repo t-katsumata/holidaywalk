@@ -1,0 +1,29 @@
+@charset 'utf-8';
+@use "@/styles/global/variables" as *;
+
+.wrapper {
+  max-width: 720px;
+  margin-inline: auto;
+  background-color: $color-white;
+  .image {
+    line-height: 1;
+  }
+  .title {
+    width: fit-content;
+    padding: 0 24px;
+    margin-inline: auto;
+    margin-top: -22px;
+    z-index: 1;
+    position: relative;
+    color: $color-white;
+    background: linear-gradient(90deg, rgba($color-main, 0.9), rgba($color-sub, 0.9));
+    font-weight: normal;
+  }
+  .content {
+    font-size: 15px;
+    padding: 24px 16px 16px;
+  }
+  & + * {
+    margin-top: 80px;
+  }
+}

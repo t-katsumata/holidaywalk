@@ -1,0 +1,68 @@
+@charset "utf-8";
+@use "@/styles/global/variables" as *;
+
+.postContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px 32px;
+  & + * {
+    margin-top: 48px;
+  }
+  .postItem {
+    .postBody {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column-reverse;
+      transition: color 0.4s;
+      .postDetail {
+        margin-top: 8px;
+        &__content {
+          display: flex;
+          justify-content: space-between;
+          font-size: 14px;
+        }
+        &__tag {
+          padding: 0;
+          list-style: none;
+          display: flex;
+          & > li:not(:first-of-type)::before {
+            content: ",";
+            margin: 0 4px 0 1px;
+          }
+        }
+        &__text {
+          font-size: 15px;
+          line-height: 1.6;
+          margin-top: 8px;
+        }
+      }
+      .postImage {
+        position: relative;
+        aspect-ratio: 16/9;
+        overflow: hidden;
+        img {
+          transition: all 0.4s;
+        }
+      }
+    }
+  }
+}
+@media (width > $sp-width-normal) {
+  .postContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (hover: hover) {
+  .postItem:hover{
+    .postBody.postBody:any-link {
+      color: $color-sub;
+    }
+    .postImage {
+      img {
+        filter: brightness(1.2);
+        transform: scale(1.1);
+      }
+    }
+  }
+}

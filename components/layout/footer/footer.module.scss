@@ -1,0 +1,9 @@
+@charset 'utf-8';
+@use "@/styles/global/variables" as *;
+
+.footer {
+  text-align: center;
+  padding: 32px;
+  color: $color-white;
+  background-color: $color-main;
+}

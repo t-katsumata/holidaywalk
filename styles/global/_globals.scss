@@ -1,0 +1,105 @@
+@use "./variables" as *;
+
+body {
+  font-family: var(--font-fraunces), var(--font-zen-old-mincho), serif;
+  color: $color-default;
+  line-height: $line-height-normal;
+  letter-spacing: $letter-spacing;
+}
+
+body,
+figure,
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  transition: color 0.3s;
+}
+@media (hover: hover) {
+  a:hover {
+    color: $color-sub;
+  }
+}
+
+img {
+  vertical-align: bottom;
+}
+
+.pageContainer {
+  background-color: $color-background;
+}
+
+.commonSection {
+  & + * {
+    margin-top: 64px;
+  }
+  &__heading {
+    padding-bottom: 4px;
+    border-bottom: solid 2px;
+    border-image: linear-gradient(to right, $color-main 0%, $color-sub 100%) 1;
+    line-height: 1.4;
+    & + * {
+      margin-top: 32px;
+    }
+  }
+}
+
+.notes {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 8px;
+}
+/* .loadingWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.loading {
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+  animation: rotate 1.4s linear 0s infinite;
+}
+
+.circle {
+  stroke: #0bd;
+  stroke-width: 4;
+  stroke-dasharray: 115 115;
+  animation: loader 1.4s linear 0s infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -230;
+  }
+} */

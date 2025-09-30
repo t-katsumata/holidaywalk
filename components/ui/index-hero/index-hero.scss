@@ -1,0 +1,41 @@
+@use "@/styles/global/variables" as *;
+
+.indexHero {
+  position: relative;
+  background-image: url(../../../images/index-hero.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  background-attachment: fixed;
+  padding-top: 100dvh;
+  margin-top: -64px;
+  p {
+    position: absolute;
+    inset: 64px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: var(--font-sawarabi-mincho), serif;
+    margin: 0;
+    line-height: 1;
+    font-size: 56px;
+    color: $color-white;
+    gap: 5px;
+    text-shadow: 1px 1px 4px rgb(0, 0, 0, 0.5);
+    span {
+      font-family: var(--font-fraunces), serif;
+      display: block;
+      font-size: 0.333em;
+    }
+  }
+}
+@media (width > $sp-width-normal) {
+  .indexHero {
+    margin-top: -68px;
+    p {
+      font-size: 72px;
+      inset: 68px 0 0 0;
+    }
+  }
+}

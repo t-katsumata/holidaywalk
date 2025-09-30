@@ -1,0 +1,20 @@
+@use "@/styles/global/variables" as *;
+
+.mainContainer {
+  width: 100%;
+  padding: 48px 10px 60px;
+  .indexHero + & {
+    padding-top: 60px;
+  }
+}
+
+@media (width > $sp-width-normal) {
+  .mainContainer {
+    max-width: $pc-width-normal;
+    padding: 64px 30px 120px;
+    margin-inline: auto;
+    .indexHero + & {
+      padding-top: 120px;
+    }
+  }
+}

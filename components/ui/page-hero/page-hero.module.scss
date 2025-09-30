@@ -1,0 +1,57 @@
+@charset 'utf-8';
+@use "@/styles/global/variables" as *;
+
+.wrapper {
+  & + * {
+    margin-top: 56px;
+  }
+  .body {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    .image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      object-position: bottom center;
+    }
+    .title {
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      padding: 20px 24px 24px;
+      width: fit-content;
+      height: fit-content;
+      text-align: center;
+      line-height: 1;
+      font-size: clamp(40px, 1.7825rem + 3.5874vw, 56px);
+      color: $color-white;
+      background: linear-gradient(180deg, rgb(#00afec, 0.9), rgb(#00a29a, 0.9));
+      &__main {
+        font-weight: normal;
+      }
+      &__sub {
+        display: block;
+        font-size: 0.357em;
+        margin-top: 12px;
+      }
+    }
+  }
+  .content {
+    margin-top: 24px;
+  }
+}
+
+@media (width > $sp-width-normal) {
+  .wrapper {
+    & + * {
+      margin-top: 80px;
+    }
+    .body {
+      .title {
+        padding: 20px 40px 24px;
+        font-size: 56px;
+      }
+    }
+  }
+}

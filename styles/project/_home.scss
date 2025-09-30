@@ -1,0 +1,23 @@
+@use "@/styles/global/variables" as *;
+
+.index__section {
+  .index__sectionTitle {
+    text-align: center;
+    font-weight: normal;
+    line-height: 1;
+    span {
+      display: block;
+      font-size: 0.6em;
+      margin-top: 5px;
+    }
+    & + * {
+      margin-top: 40px;
+    }
+  }
+  & + * {
+    margin-top: 80px;
+  }
+  .index__locationImage {
+    text-align: center;
+  }
+}

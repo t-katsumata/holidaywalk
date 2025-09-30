@@ -1,0 +1,147 @@
+@charset 'utf-8';
+@use "@/styles/global/variables" as *;
+
+.postPagination {
+  margin: 48px 0 0 0;
+  list-style: none;
+  padding: 0;
+  .nextItem,
+  .topItem,
+  .prevItem {
+    padding: 12px 8px;
+    border-bottom: solid 1px $color-default;
+  }
+  .nextLink,
+  .prevLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    text-decoration: none;
+    width: fit-content;
+    margin-inline: auto;
+    svg {
+      width: fit-content;
+      font-size: 1.25em;
+      flex-shrink: 0;
+    }
+    figure {
+      flex-shrink: 0;
+      img {
+        width: 120px;
+        height: auto;
+      }
+    }
+    span {
+      display: inline-block;
+      max-width: 200px;
+      font-size: 15px;
+    }
+  }
+  &:first-of-type {
+    border-top: solid 1px $color-default;
+  }
+  .topItem {
+    text-align: center;
+    line-height: 1.4;
+    .topLink {
+      text-decoration: none;
+    }
+  }
+}
+
+@media (width > 950px) {
+  .postPagination {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 64px;
+    padding: 16px;
+    border-top: solid 1px $color-default;
+    border-bottom: solid 1px $color-default;
+    .nextItem,
+    .topItem,
+    .prevItem {
+      padding: 0;
+      border-bottom: none;
+    }
+    .nextItem {
+      border-top: none;
+    }
+    .prevLink,
+    .nextLink {
+      gap: 20px;
+      figure {
+        img {
+          width: 160px;
+        }
+        transition: opacity 0.3s;
+      }
+      svg {
+        font-size: 1.5em;
+        transition: transform 0.3s;
+        path {
+          transition: fill 0.3s;
+        }
+      }
+      span {
+        max-width: 120px;
+        font-size: 16px;
+        transition: color 0.3s;
+      }
+    }
+    .topItem {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    &.reverse {
+      flex-direction: row-reverse;
+    }
+  }
+}
+
+@media (hover: hover) {
+  .postPagination {
+    .prevLink,
+    .nextLink {
+      figure {
+        transition: opacity 0.3s;
+      }
+      svg {
+        transition: transform 0.3s;
+        path {
+          transition: fill 0.3s;
+        }
+      }
+      span {
+        transition: color 0.3s;
+      }
+    }
+    .prevLink:hover,
+    .nextLink:hover {
+      figure {
+        opacity: 0.7;
+      }
+      svg path {
+        fill: $color-sub;
+      }
+      span {
+        color: $color-sub;
+      }
+    }
+    .nextLink:hover svg {
+      transform: translateX(-8px);
+    }
+    .prevLink:hover svg {
+      transform: translateX(8px);
+    }
+    .topLink:hover {
+      color: $color-sub;
+    }
+  }
+}
