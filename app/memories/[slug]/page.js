@@ -158,7 +158,9 @@ export default async function Post({ params }) {
           </table>
           <p className="posts__text">{content}</p>
         </div>
-        <div className="posts__RWG" dangerouslySetInnerHTML={{ __html: rideWithGps }} />
+        <div className="posts__RWG">
+          <iframe src={rideWithGps} style={{width: '1px', minWidth: '100%', height: '600px', border: 'none'}} allow="microphone"></iframe>
+        </div>
         <PostsPagination
           prevText={prevPost.title}
           prevUrl={`/memories/${prevPost.slug}`}
