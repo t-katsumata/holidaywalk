@@ -5,16 +5,19 @@ import style from './imgslider.module.scss';
 
 export default function ImageSlider({ images }) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  if (typeof window === "object") {
+
+  useEffect(() => {
+    if (typeof window !== "object") return;
+
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    useEffect(() => {
-      if (prefersReducedMotion) return;
-      const timerId = setInterval(() => {
-        setCurrentIndex(prevIndex => (prevIndex + 1) % images.length)
-      }, 5000)
-      return () => clearInterval(timerId)
-    }, []);
-  }
+    if (prefersReducedMotion) return;
+
+    const timerId = setInterval(() => {
+      setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
+    }, 5000);
+
+    return () => clearInterval(timerId)
+  }, [images.length]);
 
   return (
     <div role="region" aria-label="ウォーキング記録の画像スライダー" className={style.imgSlide}>
@@ -28,10 +31,9 @@ export default function ImageSlider({ images }) {
             width={width}
             height={height}
             sizes="(min-width: 1000px) 1000px, 100vw"
-            priority="true"
           />
         </figure>
       ))}
     </div>
-  )
+  );
 }
