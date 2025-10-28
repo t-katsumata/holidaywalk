@@ -31,6 +31,7 @@ export default function ImageSlider({ images }) {
             width={width}
             height={height}
             sizes="(min-width: 1000px) 1000px, 100vw"
+            priority="true"
           />
         </figure>
       ))}
