@@ -20,21 +20,24 @@ export default async function Home() {
     <>
       <IndexHero />
       <Container>
-        <section className="index__section">
-          <h2 className="index__sectionTitle">New Post<span>最新記事</span></h2>
+        <section aria-labelledby="new-post" className="index__section">
+          <h2 id="new-post" className="index__sectionTitle">
+            New Post<span aria-hidden="true">最新記事</span></h2>
           <Posts posts={posts.props.blogs} />
           <Button buttonUrl="/memories" buttonText="View More" />
         </section>
-        <section className="index__section">
-          <h2 className="index__sectionTitle">Category<span>カテゴリーから選ぶ</span></h2>
+        <section aria-labelledby="category" className="index__section">
+          <h2 id="category" className="index__sectionTitle">
+            Category<span aria-hidden="true">カテゴリーから選ぶ</span></h2>
           <Categories categories={categories} />
         </section>
-        <section className="index__section">
-          <h2 className="index__sectionTitle">Location<span>訪問場所から選ぶ</span></h2>
+        <section aria-labelledby="location" className="index__section">
+          <h2 id="location" className="index__sectionTitle">
+            Location<span aria-hidden="true">訪問場所から選ぶ</span></h2>
           <figure className="index__locationImage">
             <Image
               src={locationImage}
-              alt=""
+              alt="訪問場所のイメージ（関東県内の地図）"
               width={440}
               height={484}
             />

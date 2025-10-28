@@ -38,12 +38,12 @@ export default function Page() {
           subTitle="このサイトについて"
           content="このサイトに関する説明です"
         />
-        <section className="commonSection">
-          <h2 className="commonSection__heading">“空犬冒険記”とは？</h2>
+        <section aria-labelledby="aboutSite" className="commonSection">
+          <h2 id="aboutSite" className="commonSection__heading">“空犬冒険記”とは？</h2>
           <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
         </section>
-        <section className="commonSection">
-          <h2 className="commonSection__heading">管理人紹介</h2>
+        <section aria-labelledby="profile" className="commonSection">
+          <h2 id="profile" className="commonSection__heading">管理人紹介</h2>
           <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
         </section>
       </Container>

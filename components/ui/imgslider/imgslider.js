@@ -1,27 +1,34 @@
 'use client'
 
 const { useState, useEffect } = require("react");
-import style from './imgslider.module.scss'
+import style from './imgslider.module.scss';
 
 export default function ImageSlider({ images }) {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  useEffect(() => {
-    const timerId = setInterval(() => {
-      setCurrentIndex(prevIndex => (prevIndex + 1) % images.length)
-    }, 5000)
-    return () => clearInterval(timerId)
-  }, [])
+  const [currentIndex, setCurrentIndex] = useState(0);
+  if (typeof window === "object") {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    useEffect(() => {
+      if (prefersReducedMotion) return;
+      const timerId = setInterval(() => {
+        setCurrentIndex(prevIndex => (prevIndex + 1) % images.length)
+      }, 5000)
+      return () => clearInterval(timerId)
+    }, []);
+  }
+
   return (
-    <div className={style.imgSlide}>
+    <div role="region" aria-label="ウォーキング記録の画像スライダー" className={style.imgSlide}>
       {images.map(({ url, width, height }, index) => (
         <figure key={index}>
           <img
             src={url}
-            alt=""
+            alt={`風景画像${index + 1}`}
+            aria-hidden={currentIndex !== index}
             className={`${style.imgSlideItem} ${currentIndex === index ? style.isActive : ''}`}
             width={width}
             height={height}
             sizes="(min-width: 1000px) 1000px, 100vw"
+            priority="true"
           />
         </figure>
       ))}

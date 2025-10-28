@@ -17,7 +17,7 @@
     color: inherit;
     transition: color 0.3s;
     width: fit-content;
-    & > figure {
+    & > div {
       line-height: 0;
       img {
         transition: filter 0.3s;
@@ -37,7 +37,7 @@
   .gridContainer {
     & li > a:hover {
       color: $color-sub;
-      & > figure {
+      & > div {
         img {
           filter: invert(44%) sepia(80%) saturate(684%) hue-rotate(133deg) brightness(91%) contrast(101%);
         }

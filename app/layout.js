@@ -39,7 +39,7 @@ export default function RootLayout({ children }) {
     <html lang={siteLang}>
       <body className={`${fraunces.variable} ${zenOldMincho.variable}`}>
         <Header />
-        <main className="pageContainer">{children}</main>
+        <main role="main" className="pageContainer">{children}</main>
         <Pagetop />
         <Footer />
       </body>

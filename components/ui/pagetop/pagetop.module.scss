@@ -2,21 +2,18 @@
 @use "@/styles/global/variables" as *;
 
 .hideBtn {
-  position: relative;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
   cursor: pointer;
   z-index: 5;
-  &.visible {
-    opacity: 1;
-  }
+  border: none;
+  padding: 0;
+  background-color: transparent;
   span {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    right: 24px;
-    bottom: 24px;
     width: 44px;
     height: 44px;
     background-color: $color-main;

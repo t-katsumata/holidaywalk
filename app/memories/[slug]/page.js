@@ -108,7 +108,7 @@ export default async function Post({ params }) {
                 <dt className="posts__categoryTitle">Category</dt>
                 <dd className="posts__categoryBody">
                   <Link className="posts__categoryLink" href={`/category/${category[0].slug}`}>
-                    <img src={category[0].icon.url} width={64} height={64} alt="" />
+                    <img role="presentation" src={category[0].icon.url} width={64} height={64} alt="" />
                     <span>{category[0].title}</span>
                   </Link>
                 </dd>
@@ -129,6 +129,7 @@ export default async function Post({ params }) {
         <ImageSlider images={images} />
         <div className="posts__detail">
           <table className={sawarabiGothic.variable}>
+            <caption className="sr-only">ウォーキング記録の詳細</caption>
             <tbody>
               <tr>
                 <th>訪問日</th>
@@ -159,7 +160,12 @@ export default async function Post({ params }) {
           <p className="posts__text">{content}</p>
         </div>
         <div className="posts__RWG">
-          <iframe src={rideWithGps} style={{width: '1px', minWidth: '100%', height: '600px', border: 'none'}} allow="microphone"></iframe>
+          <iframe
+            title="ウォーキングルートの地図"
+            src={rideWithGps}
+            style={{width: '1px', minWidth: '100%', height: '600px', border: 'none'}}
+            allow="microphone"
+          ></iframe>
         </div>
         <PostsPagination
           prevText={prevPost.title}

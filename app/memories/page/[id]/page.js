@@ -44,13 +44,16 @@ export default async function Memories({ params }) {
           subTitle="ウォーキング記録室"
           content="これまで歩いた場所の記録をまとめたページです。"
         />
-        <Posts posts={posts.props.blogs} />
-        <Pagination
-          totalCount={posts.props.totalCount}
-          prevNum={pageIdInt - 1}
-          currentNum={pageIdInt}
-          nextNum={pageIdInt === lastPage ? "" : pageIdInt + 1}
-        />
+        <section aria-labelledby="postList" className="commonSection">
+          <h2 id="postList" className="commonSection__heading">記事一覧</h2>
+          <Posts posts={posts.props.blogs} />
+          <Pagination
+            totalCount={posts.props.totalCount}
+            prevNum={pageIdInt - 1}
+            currentNum={pageIdInt}
+            nextNum={pageIdInt === lastPage ? "" : pageIdInt + 1}
+          />
+        </section>
       </Container>
     </>
   );

@@ -6,18 +6,18 @@ export default async function PageHero({ image, title, subTitle, content }) {
     <>
       <header className={styles.wrapper}>
         <div className={styles.body}>
-          <h2 className={styles.title}>
-            <span className={styles.title__main}>{title}</span>
-            <span className={styles.title__sub}>{subTitle}</span>
-          </h2>
-          <figure>
+          <h1 className={styles.title}>
+            {title}<span className={styles.title__sub}>{subTitle}</span>
+          </h1>
+          
+          <figure aria-hidden="true">
             <Image
               src={image}
               alt=""
               width={1000}
               height={300}
               loading="eager"
-              priority={true}
+              priority="true"
               className={styles.image}
             />
           </figure>

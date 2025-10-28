@@ -8,13 +8,21 @@ export default function Posts({ posts }) {
   return (
     <>
       <div className={styles.postContainer}>
-        {posts.map(({ publishedAt, title, slug, thumbnail, category, location, content }) => (
-          <article className={styles.postItem} key={slug}>
-            <Link className={styles.postBody} href={`/memories/${slug}`}>
+        {posts.map(({ publishedAt, title, slug, thumbnail, category, location, content }, index) => (
+          <article
+            className={styles.postItem}
+            key={slug}
+            aria-labelledby={`post-title-${slug}`}
+          >
+            <Link
+              className={styles.postBody}
+              href={`/memories/${slug}`}
+              aria-label={`「${title}」の記事詳細ページへ`}
+            >
               <div className={styles.postDetail}>
                 <div className={styles.postDetail__content}>
                   <time dateTime={publishedAt} className={styles.postDetail__date}>{formatDate(publishedAt)}</time>
-                  <ul className={styles.postDetail__tag}>
+                  <ul aria-label="カテゴリと訪問場所" className={styles.postDetail__tag}>
                     <li>{category[0].title}</li>
                     {
                       location.map(({ slug, title }) => (
@@ -23,16 +31,17 @@ export default function Posts({ posts }) {
                     }
                   </ul>
                 </div>
-                <h3 className={styles.postDetail__title}>{title}</h3>
+                <h3 id={`post-title-${slug}`} className={styles.postDetail__title}>{title}</h3>
                 <p className={styles.postDetail__text}>{extractText(content, 40)}</p>
               </div>
               <figure className={styles.postImage}>
                 <Image
                   src={thumbnail.url}
-                  alt=""
+                  alt={`「${title}」の画像`}
                   layout="fill"
                   objectFit="cover"
                   sizes="(min-width: 1152px) 576px, 50vw"
+                  priority={index < 2}
                 />
               </figure>
             </Link>

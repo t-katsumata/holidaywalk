@@ -64,26 +64,29 @@ export default function Page() {
 
   // 共通のテーブル描画コンポーネント
   const ResultTable = ({ rows }) => (
-    <table className="stepOutputTable__body">
-      <thead>
-        <tr>
-          <th>歩行距離<br />(km)</th>
-          <th>推定歩数<br />(歩)</th>
-          <th>推定歩行時間<br />(h:mm:dd)</th>
-          <th>推定消費<br />カロリー<br />(kcal)</th>
-        </tr>
-      </thead>
-      <tbody>
-      {rows.map((row, i) => (
-        <tr key={i}>
-          <td>{row.km}</td>
-          <td>{row.steps}</td>
-          <td>{row.time}</td>
-          <td>{row.kcal}</td>
-        </tr>
-      ))}
-      </tbody>
-    </table>
+    <>
+      <table className="stepOutputTable__body">
+        <caption className="sr-only">推定歩行データ（距離・歩数・時間・消費カロリー）</caption>
+        <thead>
+          <tr>
+            <th>歩行距離<br />(km)</th>
+            <th>推定歩数<br />(歩)</th>
+            <th>推定歩行時間<br />(h:mm:dd)</th>
+            <th>推定消費<br />カロリー<br />(kcal)</th>
+          </tr>
+        </thead>
+        <tbody>
+        {rows.map((row, i) => (
+          <tr key={i}>
+            <td>{row.km}</td>
+            <td>{row.steps}</td>
+            <td>{row.time}</td>
+            <td>{row.kcal}</td>
+          </tr>
+        ))}
+        </tbody>
+      </table>
+    </>
   );
 
   // 入力テーブルがスクロール可能なときだけ影を出す
@@ -113,11 +116,16 @@ export default function Page() {
 
   return (
     <>
-      <section className="commonSection">
-        <h2 className="commonSection__heading">身長・体重・歩行スタイル入力</h2>
+      <section aria-labelledby="stepInput" className="commonSection">
+        <h2 id="stepInput" className="commonSection__heading">身長・体重・歩行スタイル入力</h2>
         <form onSubmit={handleSubmit(handleCalc)}>
           <div className="stepInputTableShadow">
-            <div className="stepInputTableWrapper">
+            <div
+              aria-label="入力テーブルスクロール領域"
+              tabIndex="0"
+              role="region"
+              className="stepInputTableWrapper"
+            >
               <table className={`stepInputTable ${sawarabiGothic.variable}`}>
                 <thead>
                   <tr>
@@ -133,6 +141,7 @@ export default function Page() {
                       <input
                         type="number"
                         id="height"
+                        aria-describedby="height-error"
                         {...register("height", {
                           required: {
                             value: true,
@@ -148,7 +157,7 @@ export default function Page() {
                           },
                         })}
                       />cm<br />
-                      {errors.height && <span className="inputError">{errors.height.message}</span>}
+                      {errors.height && <span id="height-error" className="inputError">{errors.height.message}</span>}
                     </td>
                     <td>歩幅の算出で使用します。<br />（入力範囲：100～230）</td>
                   </tr>
@@ -158,6 +167,7 @@ export default function Page() {
                       <input
                         type="number"
                         id="weight"
+                        aria-describedby="weight-error"
                         {...register("weight", {
                           required: {
                             value: true,
@@ -173,7 +183,7 @@ export default function Page() {
                           },
                         })}
                       />kg<br />
-                      {errors.weight && <span className="inputError">{errors.weight.message}</span>}
+                      {errors.weight && <span id="weight-error" className="inputError">{errors.weight.message}</span>}
                     </td>
                     <td>消費カロリーの算出で使用します。<br />（入力範囲：20～150）</td>
                   </tr>
@@ -206,9 +216,9 @@ export default function Page() {
                   </tr>
                   <tr>
                     <td className="calcButton" colSpan="3">
-                      <button type="submit">
+                      <button aria-label="計算を実行" type="submit">
                         計算
-                        <FontAwesomeIcon icon={faChevronRight} />
+                        <FontAwesomeIcon aria-hidden="true" icon={faChevronRight} />
                       </button>
                     </td>
                   </tr>
@@ -220,8 +230,8 @@ export default function Page() {
         </form>
       </section>
 
-      <section className="commonSection">
-        <h2 className="commonSection__heading">推定歩数、推定歩行時間、推定消費カロリー出力</h2>
+      <section aria-labelledby="stepOutput" className="commonSection">
+        <h2 id="stepOutput" className="commonSection__heading">推定歩数、推定歩行時間、推定消費カロリー出力</h2>
         {result
           ? (
               <>
@@ -238,8 +248,8 @@ export default function Page() {
         }
       </section>
 
-      <section className="commonSection">
-        <h2 className="commonSection__heading">参考サイト</h2>
+      <section aria-labelledby="reference-sites" className="commonSection">
+        <h2 id="reference-sites" className="commonSection__heading">参考サイト</h2>
         <p>
           <Link className="regularLink" href="https://kirei-kenko.or.jp/walking/stride-height" target="_blank">きれい健康ネット<FontAwesomeIcon icon={faUpRightFromSquare} /></Link>
         </p>

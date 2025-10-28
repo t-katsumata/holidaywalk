@@ -16,10 +16,10 @@ const sawarabiMincho = Sawarabi_Mincho({
 export default function IndexHero() {
   return (
   <div className="indexHero">
-    <p className={`${sawarabiMincho.variable}`}>
-      空犬冒険記
-      <span className={`${fraunces.variable}`}>Holiday Walk</span>
-    </p>
+    <h1 className={`${sawarabiMincho.variable}`}>
+      <span lang="ja">空犬冒険記</span>
+      <span lang="en" className={`${fraunces.variable}`}>Holiday Walk</span>
+    </h1>
   </div>
   );
 }

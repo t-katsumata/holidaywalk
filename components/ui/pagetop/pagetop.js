@@ -1,60 +1,52 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import styles from "./pagetop.module.scss";
-import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import gsap from "gsap";
 
 export default function PageTop() {
-  const elementRef = useRef(null);
-  const [position, setPosition] = useState(null);
-  const [isVisible, setIsVisible] = useState(false);
-  const pathname = usePathname();
+  const buttonRef = useRef(null);
 
   useEffect(() => {
-    if (elementRef.current) {
-      const handleVisible = () => {
-        const rect = elementRef.current.getBoundingClientRect();
-        setPosition(rect.top);
-        if (scrollY > 200 && innerHeight < rect.top - 100) {
-          setIsVisible(true);
-        } else {
-          setIsVisible(false);
-        }
-      };
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.body.scrollHeight;
+      const distanceFromBottom = documentHeight - (scrollY + windowHeight);
 
-      handleVisible();
-      window.addEventListener("resize", handleVisible);
-      window.addEventListener("scroll", handleVisible);
-      return () => {
-        window.removeEventListener("resize", handleVisible);
-        window.removeEventListener("scroll", handleVisible);
+      if (scrollY > 200 && distanceFromBottom > 100) {
+        gsap.to(buttonRef.current, { autoAlpha: 1, duration: 0.4, ease: "power2.out" });
+      } else {
+        gsap.to(buttonRef.current, { autoAlpha: 0, duration: 0.4, ease: "power2.out" });
       }
-    }
+    };
+
+    handleScroll(); // 初期判定
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
   }, []);
 
-  useEffect(() => {
-    setPosition(null);
-  }, [pathname]);
-
   const handleScrollTo = () => {
-    scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <>
-      <p
-        ref={elementRef}
+      <button
+        ref={buttonRef}
         onClick={handleScrollTo}
-        className={`${styles.hideBtn} ${isVisible ? styles.visible : ""}`}
+        className={styles.hideBtn}
+        style={{ opacity: 0, visibility: "hidden" }}
         aria-label="ページトップへ戻る"
       >
-        <span><FontAwesomeIcon icon={faChevronUp} /></span>
-      </p>
+        <span aria-hidden="true"><FontAwesomeIcon icon={faChevronUp} /></span>
+      </button>
     </>
   );
 }

@@ -25,11 +25,9 @@
       text-align: center;
       line-height: 1;
       font-size: clamp(40px, 1.7825rem + 3.5874vw, 56px);
+      font-weight: normal;
       color: $color-white;
       background: linear-gradient(180deg, rgb(#00afec, 0.9), rgb(#00a29a, 0.9));
-      &__main {
-        font-weight: normal;
-      }
       &__sub {
         display: block;
         font-size: 0.357em;

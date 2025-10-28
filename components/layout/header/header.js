@@ -10,12 +10,16 @@ const sawarabiMincho = Sawarabi_Mincho({
   variable: '--font-sawarabi-mincho',
 });
 
-export default function header() {
+export default function Header() {
   return (
-    <header className={styles.header}>
+    <header role="banner" className={styles.header}>
       <h1 className={styles.header__logo}>
-        <Link className={`${sawarabiMincho.variable}`} href="/">
-          空犬冒険記
+        <Link
+          className={`${sawarabiMincho.variable}`}
+          href="/"
+          aria-label="トップページへ戻る"
+        >
+          <span lang="ja">空犬冒険記</span>
         </Link>
       </h1>
       <Hamburger />

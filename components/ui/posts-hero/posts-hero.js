@@ -5,14 +5,13 @@ export default async function PostsHero({ cat, type }) {
   return (
     <>
       <header className={styles.wrapper}>
-        <figure className={styles.image}>
+        <figure aria-hidden="true" className={styles.image}>
           <Image
             src={cat.thumbnail.url}
             alt=""
             width={800}
             height={400}
-            loading="eager"
-            priority={true}
+            priority
           />
         </figure>
         <h2 className={styles.title}>{type}：{cat.title}</h2>

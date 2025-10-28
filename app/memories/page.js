@@ -42,13 +42,16 @@ export default async function Memories() {
           subTitle="ウォーキング記録室"
           content="これまで歩いた場所の記録をまとめたページです。"
         />
-        <Posts posts={posts.props.blogs} />
-        <Pagination
-          totalCount={posts.props.totalCount}
-          prevNum={0}
-          currentNum={1}
-          nextNum={2}
-        />
+        <section aria-labelledby="postList" className="commonSection">
+          <h2 id="postList" className="commonSection__heading">記事一覧</h2>
+          <Posts posts={posts.props.blogs} />
+          <Pagination
+            totalCount={posts.props.totalCount}
+            prevNum={0}
+            currentNum={1}
+            nextNum={2}
+          />
+        </section>
       </Container>
     </>
   );

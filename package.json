@@ -16,6 +16,8 @@
     "@fortawesome/react-fontawesome": "^3.0.2",
     "dayjs": "^1.11.18",
     "dompurify": "^3.2.7",
+    "focus-trap-react": "^11.0.4",
+    "gsap": "^3.13.0",
     "html-to-text": "^9.0.5",
     "isomorphic-dompurify": "^2.28.0",
     "jsdom": "^27.0.0",

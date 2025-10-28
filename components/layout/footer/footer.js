@@ -1,9 +1,9 @@
 import styles from "./footer.module.scss";
 
-export default function footer() {
+export default function Footer() {
   return (
-    <footer className={styles.footer}>
-      <small>Copyright &copy; 2025 sorainu All right reserved. </small>
+    <footer role="contentinfo" className={styles.footer}>
+      <small lang="en">Copyright &copy; 2025 TOORU KATSUMATA All right reserved. </small>
     </footer>
   );
 };
