@@ -20,7 +20,7 @@ export async function generateMetadata({ params }) {
   const allLocs = await getAllLocations();
   const locs = allLocs.find(({ slug }) => slug === locSlug.slug);
   const pageTitle = locs.title;
-  const pageDesc = `${pageTitle}エリアのウオーキング記録`;
+  const pageDesc = `${pageTitle}エリアのウォーキング記録`;
   const ogpTitle = `${pageTitle} | ${siteTitle}`;
   const ogpUrl = new URL(`/location/${locSlug}`, siteUrl).toString();
 

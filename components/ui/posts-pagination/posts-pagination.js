@@ -28,6 +28,7 @@ export default function Pagination({
                 width={160}
                 height={90}
                 role="presentation"
+                loading="lazy"
               />
             </figure>
             <span>{nextText}</span>
@@ -58,6 +59,7 @@ export default function Pagination({
                 width={160}
                 height={90}
                 role="presentation"
+                loading="lazy"
               />
             </figure>
             <FontAwesomeIcon aria-hidden="true" icon={faSquareCaretRight} size="xl" />

@@ -20,7 +20,7 @@ export async function generateMetadata({ params }) {
   const allCats = await getAllCategories();
   const cat = allCats.find(({ slug }) => slug === catSlug.slug);
   const pageTitle = cat.title;
-  const pageDesc = `${pageTitle}のウオーキング記録`;
+  const pageDesc = `${pageTitle}のウォーキング記録`;
   const ogpTitle = `${pageTitle} | ${siteTitle}`;
   const ogpUrl = new URL(`/category/${catSlug}`, siteUrl).toString();
 
