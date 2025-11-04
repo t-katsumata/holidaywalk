@@ -1,0 +1,55 @@
+@use "@/styles/global/variables" as *;
+
+.profile-wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 32px;
+}
+.profile-detail {
+  margin: 0;
+  &__item {
+    display: flex;
+    flex-direction: column;
+    &:not(:first-of-type) {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: solid 1px $color-default;
+    }
+  }
+  &__title {
+    font-weight: bold;
+  }
+  &__body {
+    margin: 0;
+    padding-left: 1em;
+    ul {
+      padding-left: 1.1em;
+    }
+  }
+}
+.profile-image {
+  text-align: center;
+}
+@media (width > $sp-width-normal) {
+  .profile-wrapper {
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 4.8%;
+  }
+  .profile-detail {
+    margin: 0;
+    &__item {
+      flex-direction: row;
+      gap: 24px;
+    }
+    &__title {
+      flex-shrink: 0;
+      width: 24.153%;
+      padding-left: 0;
+    }
+  }
+  .profile-image {
+    flex-basis: 35%;
+    flex-shrink: 0;
+  }
+}
