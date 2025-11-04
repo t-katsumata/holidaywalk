@@ -8,6 +8,7 @@ import PostsPagination from "@/components/ui/posts-pagination/posts-pagination"
 import "@/styles/style.scss";
 import Container from "@/components/layout/container/container"
 import { extractText } from "@/lib/extract-text"
+import safeRichText from "@/lib/safeRichText"
 
 const sawarabiGothic = Sawarabi_Gothic({
   weight: ['400'],
@@ -94,6 +95,8 @@ export default async function Post({ params }) {
   const secondsParMinutes = Math.floor((walkSeconds % 3600) / 60)
   const secondsParSeconds = walkSeconds % 60
 
+  const richText = safeRichText(content)
+
   return (
     <Container>
       <article className="posts">
@@ -157,7 +160,7 @@ export default async function Post({ params }) {
               </tr>
             </tbody>
           </table>
-          <p className="posts__text">{content}</p>
+          <div className="posts__text">{richText}</div>
         </div>
         <div className="posts__RWG">
           <iframe

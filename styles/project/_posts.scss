@@ -106,6 +106,9 @@
     table {
       font-family: var(--font-sawarabiGothic);
       border: none;
+      th, td {
+        padding: 0.5em;
+      }
       th {
         font-weight: normal;
         width: 92px;
@@ -180,6 +183,7 @@
     }
     &__detail {
       grid-template-columns: repeat(2, 1fr);
+      align-items: start;
       margin-top: 56px;
       gap: 36px;
     }
