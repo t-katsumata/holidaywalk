@@ -14,9 +14,21 @@ export default function PageTop() {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       const documentHeight = document.body.scrollHeight;
+
+      // フッター要素を取得
+      const footer = document.querySelector("footer");
+      const footerHeight = footer ? footer.offsetHeight : 0;
+
+      // 下端からの距離
       const distanceFromBottom = documentHeight - (scrollY + windowHeight);
 
-      if (scrollY > 200 && distanceFromBottom > 100) {
+      // フェードイン条件: 200px以上スクロール && 下端から100px以上余裕あり
+      const shouldShow = scrollY > 200 && distanceFromBottom > 100;
+
+      // フェードアウト条件: フッター高さ + 100px 以内に入ったら消す
+      const shouldHideNearFooter = distanceFromBottom <= footerHeight + 100;
+
+      if (shouldShow && !shouldHideNearFooter) {
         gsap.to(buttonRef.current, { autoAlpha: 1, duration: 0.4, ease: "power2.out" });
       } else {
         gsap.to(buttonRef.current, { autoAlpha: 0, duration: 0.4, ease: "power2.out" });
