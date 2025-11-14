@@ -35,7 +35,7 @@ export default function Page() {
     <>
       <Container>
         <PageHero
-          image="https://images.microcms-assets.io/assets/bb6784427f6d4407af5d06e92452ab5a/546609912878437d9ca39841c03b6723/about-hero.jpg"
+          image="https://images.microcms-assets.io/assets/bb6784427f6d4407af5d06e92452ab5a/f339fb59438248109aa0f19dda214dff/about-hero.jpg"
           title="About"
           subTitle="このサイトについて"
           content="このサイトに関する説明です。"

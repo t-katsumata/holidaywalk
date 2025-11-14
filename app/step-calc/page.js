@@ -32,7 +32,7 @@ export default function walkCalc() {
   return (
     <Container>
       <PageHero
-        image="https://images.microcms-assets.io/assets/bb6784427f6d4407af5d06e92452ab5a/03696c8e3c1e4e8caca7b91160edd389/stepCalc-hero.jpg"
+        image="https://images.microcms-assets.io/assets/bb6784427f6d4407af5d06e92452ab5a/2908d62370a449d5b5493c1aba52dd58/stepCalc-hero.jpg"
         title="Step Calculation"
         subTitle="歩数算出ツール"
         content="身長、体重、歩き方、歩行速度を入力すると、1㎞毎の推定歩数、推定時間、推定消費カロリーを算出します。"

@@ -37,7 +37,7 @@ export default async function Memories() {
     <>
       <Container>
         <PageHero
-          image="https://images.microcms-assets.io/assets/bb6784427f6d4407af5d06e92452ab5a/16b8ab0bc1dd4a24a5a80bafd1ead2a1/memories-hero.jpg"
+          image="https://images.microcms-assets.io/assets/bb6784427f6d4407af5d06e92452ab5a/5c5acba1916043f29f494a509ca09038/memories-hero.jpg"
           title="Memories"
           subTitle="ウォーキング記録室"
           content="これまで歩いた場所の記録をまとめたページです。"
