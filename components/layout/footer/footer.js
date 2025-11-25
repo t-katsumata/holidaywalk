@@ -44,7 +44,7 @@ export default function Footer() {
             </ul>
           </li>
           <li><Link href="/step-calc">歩数算出ツール</Link></li>
-          <li><Link href="mailto:katsumata.tooru.ks@gmail.com">お問い合わせ</Link></li>
+          <li><Link href="mailto:fyech873jf@gmail.com">お問い合わせ</Link></li>
         </ul>
         <small lang="en">Copyright &copy; 2025 Sorainu All right reserved. </small>
       </Container>

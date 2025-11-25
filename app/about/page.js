@@ -54,7 +54,7 @@ export default function Page() {
               </div>
               <div className="profile-detail__item">
                 <dt className="profile-detail__title">出身地</dt>
-                <dd className="profile-detail__body">静岡県富士宮市</dd>
+                <dd className="profile-detail__body">静岡県</dd>
               </div>
               <div className="profile-detail__item">
                 <dt className="profile-detail__title">現在地</dt>
